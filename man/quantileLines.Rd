@@ -34,6 +34,32 @@ Adapted from the \href{https://github.com/GRousselet/rogme/blob/master/R/plot_ut
 \details{
 In order for these quantile lines to make sense, the axes of the plot should be identically scaled.
 }
+\examples{
+library(ggplot2)
+library(UsingR) # Package contains dataset
+
+# Get data
+data <- crime
+
+# Create paired scatterplot
+paired_scatter <- ggplot(data = data, aes(x = y1983, y = y1993)) +
+    geom_abline(slope = 1, intercept = 0) +
+    geom_point(shape = 21, fill = "grey") +
+    xlim(0, 1500) + ylim(0, 1500) +
+    labs(title = "Violent crime in 50 U.S. states in 1983 and 1993",
+         subtitle = "Rates per 100,000 population",
+         x = "Violent crime rate in 1983",
+         y = "Violent crime rate in 1993") +
+    theme_minimal() +
+    theme(aspect.ratio = 1)
+
+# Add lines at the first quartile, median, and third quartile
+paired_scatter <- quantileLines(paired_scatter, probs = c(0.25, 0.5, 0.75),
+                                colour_m = "black", colour = "grey",
+                                size_m = 0.5, size = 0.25,
+                                linetype_m = "longdash", linetype = "dashed")          
+
+}
 \seealso{
 \code{\link[stats]{quantile}}, \code{\link[ggplot2]{geom_segment}}
 }

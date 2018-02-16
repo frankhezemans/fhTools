@@ -19,7 +19,7 @@
 #' @author Frank H. Hezemans, \email{Frank.Hezemans@@mrc-cbu.cam.ac.uk}
 #' @seealso \code{\link[stats]{quantile}}, \code{\link[ggplot2]{geom_segment}}
 #' 
-#' @example
+#' @examples
 #' library(ggplot2)
 #' library(UsingR) # Package contains dataset
 #' 
