@@ -59,7 +59,12 @@ quantileLines <- function(p, probs = c(0.25, 0.5, 0.75),
   }
   
   # Get the raw data used in the plot
-  data <- ggplot2::ggplot_build(p)$data[[1]]
+  data <- ggplot2::ggplot_build(p)$data
+  if (length(data) > 1){
+    # The object with the real data probably has the most rows; determine which one that is
+    index <- which.max(sapply(data, nrow))
+    data <- data[[index]]
+  }
   
   # Calculate the requested quantiles for x and y variables
   q_x <- quantile(data$x, probs = probs, na.rm = TRUE, names = FALSE)
