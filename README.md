@@ -70,4 +70,4 @@ paired_scatter <- quantileLines(paired_scatter, probs = c(0.25, 0.5, 0.75),
 
 <img src="README_figures/paired_scatter.png" width="500" />
 
-The median line suggests that in general, violent crime has increased from 1983 to 1993. However, the other quartile lines provide additional information: Those states with a relatively high violent crime rate in 1983 had a much stronger increase in violent crime than those states with a relatively low violent crime rate in 1983.
+The median line suggests that in general, violent crime has increased from 1983 to 1993, because the intersection of the black line segments is above the identity line. However, the other quartile lines provide additional information: Those states with a relatively high violent crime rate in 1983 had a much stronger increase in violent crime than those states with a relatively low violent crime rate in 1983.
